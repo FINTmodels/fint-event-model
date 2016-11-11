@@ -60,6 +60,7 @@ public class Event<T> {
      * Default constructor that create an empty Event object.
      */
     public Event() {
+        this.data = new ArrayList<>();
     }
 
     /**
@@ -75,6 +76,7 @@ public class Event<T> {
         this.verb = verb;
         this.client = client;
 
+        this.status = Status.NEW;
         this.corrId = UUID.randomUUID().toString();
         this.time = System.currentTimeMillis();
         this.data = new ArrayList<>();

@@ -1,15 +1,36 @@
+plugins {
+    id "com.jfrog.bintray" version "1.7"
+}
+
 group 'no.fint.event'
 version '0.0.1-SNAPSHOT'
 
 apply plugin: 'groovy'
 apply plugin: 'java'
+apply plugin: 'maven'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+
+jar {
+    baseName = "fint-event-model"
+    version = version
+}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    testCompile('org.spockframework:spock-core:1.1-groovy-2.4-rc-2')
+}
+
+javadoc {
+    source = sourceSets.main.allJava
+    classpath = configurations.compile
+    options.windowTitle = "FINT Event Model"
+}
+
+if (project.hasProperty('bintrayUser') && project.hasProperty('bintrayKey')) {
+    apply from: 'https://raw.githubusercontent.com/FINTprosjektet/fint-buildscripts/master/bintray.gradle'
 }
