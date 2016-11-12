@@ -209,6 +209,14 @@ public class Event<T> {
     }
 
     /**
+     * Adds data to the ArrayList.
+     * @param data See {@link #data} for more informasjon.
+     */
+    public void addData(T data) {
+        this.data.add(data);
+    }
+
+    /**
      * @return JSON String of the Event object.
      */
     @Override
