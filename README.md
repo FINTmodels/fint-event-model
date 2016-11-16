@@ -14,7 +14,7 @@ repositories {
     }
 }
 
-compile('no.fint:fint-event-model:0.0.3')
+compile('no.fint:fint-event-model:0.0.4')
 ```
 
 https://bintray.com/fint/maven/fint-event-model
