@@ -4,7 +4,7 @@ package no.fint.event.model;
  * The Status Enum indicates what step the {@link Event} is at. The steps can be:
  * <ul>
  *  <li>{@link #NEW}</li>
- *  <li>{@link #INBOUND_QUEUE}</li>
+ *  <li>{@link #DOWNSTREAM_QUEUE}</li>
  *  <li>{@link #DELIVERED_TO_PROVIDER}</li>
  *  <li>{@link #PROVIDER_ACCEPTED}</li>
  *  <li>{@link #PROVIDER_NOT_CONFIRMED}</li>
@@ -12,7 +12,7 @@ package no.fint.event.model;
  *  <li>{@link #NO_RESPONSE_FOR_PROVIDER}</li>
  *  <li>{@link #PROVIDER_REJECTED}</li>
  *  <li>{@link #PROVIDER_RESPONSE}</li>
- *  <li>{@link #OUTBOUND_QUEUE}</li>
+ *  <li>{@link #UPSTREAM_QUEUE}</li>
  *  <li>{@link #SENT_TO_CLIENT}</li>
  *  <li>{@link #CACHE}</li>
  *  <li>{@link #CACHE_RESPONSE}</li>
@@ -26,9 +26,9 @@ public enum Status {
     NEW,
 
     /**
-     * Indicates that the event is put in the inbound event queue.
+     * Indicates that the event is put in the downstream event queue.
      */
-    INBOUND_QUEUE,
+    DOWNSTREAM_QUEUE,
 
     /**
      * Indicates that the event is delivered to the provider, but we don't know if
@@ -72,9 +72,9 @@ public enum Status {
     PROVIDER_RESPONSE,
 
     /**
-     * Indicates that the event is put in the outbound event queue.
+     * Indicates that the event is put in the upstream event queue.
      */
-    OUTBOUND_QUEUE,
+    UPSTREAM_QUEUE,
 
     /**
      * Indicates that the event is sent back to the client. This is the last step for the event.
