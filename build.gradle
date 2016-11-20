@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'no.fint.event'
-version '0.0.5'
+version '0.0.6-SNAPSHOT'
 
 apply plugin: 'groovy'
 apply plugin: 'java'
@@ -22,7 +22,7 @@ repositories {
 }
 
 dependencies {
-    testCompile('org.spockframework:spock-core:1.1-groovy-2.4-rc-2')
+    testCompile('org.spockframework:spock-core:1.1-groovy-2.4-rc-3')
 }
 
 javadoc {
