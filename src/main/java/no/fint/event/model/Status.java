@@ -88,5 +88,11 @@ public enum Status {
     /**
      * Indicates that the event is the response form the cache service.
      */
-    CACHE_RESPONSE
+    CACHE_RESPONSE,
+    /**
+     * Indicates that something went wrong with the event. The message field should be set when this
+     * status is set.
+     */
+    ERROR
+
 }
