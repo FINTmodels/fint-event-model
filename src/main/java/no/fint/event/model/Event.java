@@ -21,7 +21,7 @@ public class Event<T> implements Serializable {
      * This should be the command we wish to execute at the provider or cache.
      * For example it could be <code>GET_ALL_EMPLOYEES</code>
      */
-    private String verb;
+    private String action;
     /**
      * Status of the event. See {@link Status} for more informasjon.
      */
@@ -68,13 +68,13 @@ public class Event<T> implements Serializable {
      * Constructor that sets up an {@link Status#NEW} Event.
      * @param orgId See {@link #orgId} for more informasjon.
      * @param source See {@link #source} for more informasjon.
-     * @param verb See {@link #verb} for more informasjon.
+     * @param action See {@link #action} for more informasjon.
      * @param client See {@link #client} for more informasjon.
      */
-    public Event(String orgId, String source, String verb, String client) {
+    public Event(String orgId, String source, String action, String client) {
         this.orgId = orgId;
         this.source = source;
-        this.verb = verb;
+        this.action = action;
         this.client = client;
 
         this.status = Status.NEW;
@@ -98,17 +98,17 @@ public class Event<T> implements Serializable {
     }
 
     /**
-     * @return {@link #verb}
+     * @return {@link #action}
      */
-    public String getVerb() {
-        return verb;
+    public String getAction() {
+        return action;
     }
 
     /**
-     * @param verb See {@link #verb} for more informasjon.
+     * @param action See {@link #action} for more informasjon.
      */
-    public void setVerb(String verb) {
-        this.verb = verb;
+    public void setAction(String action) {
+        this.action = action;
     }
 
     /**
@@ -224,7 +224,7 @@ public class Event<T> implements Serializable {
     public String toString() {
         return "Event{" +
                 "corrId='" + corrId + '\'' +
-                ", verb='" + verb + '\'' +
+                ", action='" + action + '\'' +
                 ", status=" + status +
                 ", time=" + time +
                 ", orgId='" + orgId + '\'' +

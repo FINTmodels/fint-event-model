@@ -18,7 +18,7 @@ class EventSpec extends Specification {
         event.source == null
         event.orgId == null
         event.time == 0
-        event.verb == null
+        event.action == null
     }
 
     def "Creatning av Status.NEW Event object"() {
@@ -34,6 +34,6 @@ class EventSpec extends Specification {
         event.source == "FK1"
         event.orgId == "rogfk.no"
         event.time > 0
-        event.verb == "GET_ALL"
+        event.action == "GET_ALL"
     }
 }
