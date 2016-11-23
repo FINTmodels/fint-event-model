@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'no.fint.event'
-version '0.0.8-SNAPSHOT'
+version '0.0.9-SNAPSHOT'
 
 apply plugin: 'groovy'
 apply plugin: 'java'
