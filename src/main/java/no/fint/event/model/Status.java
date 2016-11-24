@@ -93,6 +93,10 @@ public enum Status {
      * Indicates that something went wrong with the event. The message field should be set when this
      * status is set.
      */
-    ERROR
+    ERROR,
+    /**
+     * Indicates that we cannot find any corresponding events.
+     */
+    PROVIDER_RESPONSE_ORPHANT
 
 }
