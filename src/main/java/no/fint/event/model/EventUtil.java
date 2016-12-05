@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Slf4j
 public enum EventUtil {
     ;
 
@@ -17,7 +16,6 @@ public enum EventUtil {
         try {
             return objectMapper.readValue(json, Event.class);
         } catch (IOException e) {
-            log.error("Unable to create Event-object from json", e);
             return null;
         }
     }
@@ -38,7 +36,6 @@ public enum EventUtil {
         try {
             return objectMapper.writeValueAsString(event);
         } catch (JsonProcessingException e) {
-            log.error("Unable to create json from Event-object", e);
             return null;
         }
     }
