@@ -13,6 +13,7 @@ package no.fint.event.model;
  *  <li>{@link #PROVIDER_REJECTED}</li>
  *  <li>{@link #PROVIDER_RESPONSE}</li>
  *  <li>{@link #UPSTREAM_QUEUE}</li>
+ *  <li>{@link #TEMP_UPSTREAM_QUEUE}</li>
  *  <li>{@link #SENT_TO_CLIENT}</li>
  *  <li>{@link #CACHE}</li>
  *  <li>{@link #CACHE_RESPONSE}</li>
@@ -75,6 +76,11 @@ public enum Status {
      * Indicates that the event is put in the upstream event queue.
      */
     UPSTREAM_QUEUE(15),
+
+    /**
+     * Indicates that the event is put int the temp upstream event queue.
+     */
+    TEMP_UPSTREAM_QUEUE(16),
 
     /**
      * Indicates that the event is sent back to the client. This is the last step for the event.
