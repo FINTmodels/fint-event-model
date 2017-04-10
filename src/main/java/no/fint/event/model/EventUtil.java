@@ -8,15 +8,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Methods for converting events.
+ * Utility methods for converting events.
  */
 public enum EventUtil {
     ;
 
     /**
+     * Returns a Event object from a JSON string.
      *
      * @param json JSON string
-     * @return {@link #Event}
+     * @return {@link Event}
      */
     public static Event toEvent(String json) {
         ObjectMapper objectMapper = new ObjectMapper();
@@ -28,6 +29,7 @@ public enum EventUtil {
     }
 
     /**
+     * Converts the data field in the Event to a class of <i>type</i>.
      *
      * @param event The Event to convert data from.
      * @param type Type of data
@@ -45,7 +47,7 @@ public enum EventUtil {
 
 
     /**
-     *
+     * Returns a JSON string of the Event.
      * @param event Event object
      * @return Event object as a JSON string.
      */
