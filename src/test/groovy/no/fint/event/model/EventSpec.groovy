@@ -2,7 +2,6 @@ package no.fint.event.model
 
 import spock.lang.Specification
 
-
 class EventSpec extends Specification {
 
     def "Creating a empty Event object with default constructor"() {

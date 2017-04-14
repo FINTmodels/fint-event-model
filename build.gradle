@@ -1,9 +1,6 @@
 plugins {
-    id "com.jfrog.bintray" version "1.7"
+    id 'com.jfrog.bintray' version '1.7.3'
 }
-
-group 'no.fint.event'
-version '0.0.12-SNAPSHOT'
 
 apply plugin: 'groovy'
 apply plugin: 'java'
@@ -13,28 +10,33 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 jar {
-    baseName = "fint-event-model"
-    version = version
+    baseName = 'fint-event-model'
+    version = '0.0.12-SNAPSHOT'
 }
 
 repositories {
     mavenCentral()
 }
 
+apply from: 'https://raw.githubusercontent.com/FINTlibs/fint-buildscripts/v1.0.5/dependencies.gradle'
 dependencies {
-    compile('org.projectlombok:lombok:1.16.10')
     compile('com.fasterxml.jackson.core:jackson-databind:2.8.4')
+    compile("org.projectlombok:lombok:${lombokVersion}")
 
     testCompile('org.spockframework:spock-core:1.1-groovy-2.4-rc-3')
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = gradleVersion
 }
 
 javadoc {
     source = sourceSets.main.allJava
     classpath = configurations.compile
-    options.windowTitle = "FINT Event Model"
-    destinationDir = file("./javadocs/")
+    options.windowTitle = 'FINT Event Model'
+    destinationDir = file('./javadocs/')
 }
 
 if (project.hasProperty('bintrayUser') && project.hasProperty('bintrayKey')) {
-    apply from: 'https://raw.githubusercontent.com/FINTlibs/fint-buildscripts/v1.0.0/bintray.gradle'
+    apply from: 'https://raw.githubusercontent.com/FINTprosjektet/fint-buildscripts/v1.0.5/bintray.gradle'
 }
