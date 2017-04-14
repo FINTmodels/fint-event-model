@@ -1,4 +1,7 @@
 # FINT Event Model
+
+[![FINT javadocs](https://img.shields.io/badge/FINT-javadocs-blue.svg)](https://javadocs.felleskomponent.no/docs/fint-event-model/)
+
 The Event model for FINT
 
 ## Installation
