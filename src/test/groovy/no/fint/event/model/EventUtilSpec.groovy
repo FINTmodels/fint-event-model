@@ -48,7 +48,7 @@ class EventUtilSpec extends Specification {
         eventData[0].value == 'test'
     }
 
-    def "Return null when unable to convert from event to json"() {
+    def "Return null when trying to convert from Event to json and JsonProcessingException is thrown "() {
         given:
         def objectMapper = Mock(ObjectMapper) {
             writeValueAsString(_ as Event) >> {
@@ -61,6 +61,14 @@ class EventUtilSpec extends Specification {
 
         then:
         json == null
+    }
+
+    def "Return null when trying to covert from json to Event and IOException is thrown"() {
+        when:
+        def event = EventUtil.toEvent('test')
+
+        then:
+        event == null
     }
 
 }
