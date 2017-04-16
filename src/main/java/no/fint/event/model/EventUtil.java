@@ -3,6 +3,7 @@ package no.fint.event.model;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 /**
  * Utility methods for converting events.
  */
+@Slf4j
 public enum EventUtil {
     ;
 
@@ -29,6 +31,7 @@ public enum EventUtil {
         try {
             return objectMapper.readValue(json, Event.class);
         } catch (IOException e) {
+            log.warn("Unable to convert json to Event", e);
             return null;
         }
     }
@@ -63,6 +66,7 @@ public enum EventUtil {
         try {
             return objectMapper.writeValueAsString(event);
         } catch (JsonProcessingException e) {
+            log.warn("Unable to convert Event to json", e);
             return null;
         }
     }
