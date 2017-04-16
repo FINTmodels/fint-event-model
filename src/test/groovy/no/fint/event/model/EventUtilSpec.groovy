@@ -1,6 +1,7 @@
 package no.fint.event.model
 
 import com.fasterxml.jackson.core.JsonProcessingException
+import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import no.fint.event.model.testutils.TestDto
 import spock.lang.Specification
@@ -41,7 +42,7 @@ class EventUtilSpec extends Specification {
         event.addData(data)
 
         when:
-        List<TestDto> eventData = EventUtil.convertEventData(event)
+        List<TestDto> eventData = EventUtil.convertEventData(event,new TypeReference<List<TestDto>>() {})
 
         then:
         eventData.size() == 1

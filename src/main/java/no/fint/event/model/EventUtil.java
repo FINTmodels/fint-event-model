@@ -43,13 +43,13 @@ public enum EventUtil {
      * @param <T>   Type of data
      * @return A list of objects of the type specified.
      */
-    public static <T> List<T> convertEventData(Event event) {
-        return convertEventData(objectMapper, event);
+    public static <T> List<T> convertEventData(Event event, TypeReference<List<T>> type) {
+        return convertEventData(objectMapper, event, type);
     }
 
-    public static <T> List<T> convertEventData(ObjectMapper objectMapper, Event event) {
-        return objectMapper.convertValue(event.getData(), new TypeReference<List<T>>() {
-        });
+    public static <T> List<T> convertEventData(ObjectMapper objectMapper, Event event, TypeReference<List<T>> type) {
+        List<?> dataList = event.getData();
+        return objectMapper.convertValue(dataList, type);
     }
 
     /**
