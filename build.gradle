@@ -1,13 +1,14 @@
 plugins {
     id 'com.jfrog.bintray' version '1.7.3'
+    id 'com.github.kt3k.coveralls' version '2.6.3'
 }
 
 apply plugin: 'groovy'
 apply plugin: 'java'
 apply plugin: 'maven'
+apply plugin: 'jacoco'
 
 sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 jar {
     baseName = 'fint-event-model'
@@ -18,7 +19,7 @@ repositories {
     mavenCentral()
 }
 
-apply from: 'https://raw.githubusercontent.com/FINTlibs/fint-buildscripts/v1.0.5/dependencies.gradle'
+apply from: 'https://raw.githubusercontent.com/FINTlibs/fint-buildscripts/v1.0.7/dependencies.gradle'
 dependencies {
     compile('com.fasterxml.jackson.core:jackson-databind:2.8.4')
     compile("org.projectlombok:lombok:${lombokVersion}")
@@ -37,6 +38,12 @@ javadoc {
     destinationDir = file('./javadocs/')
 }
 
+jacocoTestReport {
+    reports {
+        xml.enabled true
+    }
+}
+
 if (project.hasProperty('bintrayUser') && project.hasProperty('bintrayKey')) {
-    apply from: 'https://raw.githubusercontent.com/FINTprosjektet/fint-buildscripts/v1.0.5/bintray.gradle'
+    apply from: 'https://raw.githubusercontent.com/FINTprosjektet/fint-buildscripts/v1.0.7/bintray.gradle'
 }

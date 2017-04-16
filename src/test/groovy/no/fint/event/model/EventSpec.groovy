@@ -22,17 +22,17 @@ class EventSpec extends Specification {
 
     def "Creatning av Status.NEW Event object"() {
         when:
-        Event event = new Event("rogfk.no", "FK1", "GET_ALL", "VFS")
+        Event event = new Event('rogfk.no', 'FK1', 'GET_ALL', 'VFS')
 
         then:
         event.corrId != null
-        event.client == "VFS"
+        event.client == 'VFS'
         event.data.size() == 0
         event.message == null
         event.status == Status.NEW
-        event.source == "FK1"
-        event.orgId == "rogfk.no"
+        event.source == 'FK1'
+        event.orgId == 'rogfk.no'
         event.time > 0
-        event.action == "GET_ALL"
+        event.action == 'GET_ALL'
     }
 }
