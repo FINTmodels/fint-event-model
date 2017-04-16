@@ -19,7 +19,6 @@ package no.fint.event.model;
  *  <li>{@link #CACHE_RESPONSE}</li>
  * </ul>
  */
-
 public enum Status {
     /**
      * Indicates that the event is just created.

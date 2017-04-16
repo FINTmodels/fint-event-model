@@ -43,7 +43,6 @@ public enum EventUtil {
         });
     }
 
-
     /**
      * Returns a JSON string of the Event.
      *
