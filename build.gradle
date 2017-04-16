@@ -19,11 +19,10 @@ repositories {
     mavenCentral()
 }
 
-apply from: 'https://raw.githubusercontent.com/FINTlibs/fint-buildscripts/v1.0.7/dependencies.gradle'
 dependencies {
     compile('com.fasterxml.jackson.core:jackson-databind:2.8.4')
-    compile("org.projectlombok:lombok:${lombokVersion}")
 
+    testCompile('cglib:cglib-nodep:3.2.5')
     testCompile('org.spockframework:spock-core:1.1-groovy-2.4-rc-3')
 }
 

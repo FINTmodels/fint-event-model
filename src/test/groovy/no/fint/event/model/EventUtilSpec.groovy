@@ -1,5 +1,6 @@
 package no.fint.event.model
 
+import com.fasterxml.jackson.core.JsonProcessingException
 import com.fasterxml.jackson.databind.ObjectMapper
 import no.fint.event.model.testutils.TestDto
 import spock.lang.Specification
@@ -45,6 +46,21 @@ class EventUtilSpec extends Specification {
         then:
         eventData.size() == 1
         eventData[0].value == 'test'
+    }
+
+    def "Return null when unable to convert from event to json"() {
+        given:
+        def objectMapper = Mock(ObjectMapper) {
+            writeValueAsString(_ as Event) >> {
+                throw new JsonProcessingException('Test exception')
+            }
+        }
+
+        when:
+        def json = EventUtil.toJson(objectMapper, new Event())
+
+        then:
+        json == null
     }
 
 }

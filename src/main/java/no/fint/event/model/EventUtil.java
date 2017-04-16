@@ -3,7 +3,6 @@ package no.fint.event.model;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Setter;
 
 import java.io.IOException;
 import java.util.List;
@@ -14,8 +13,7 @@ import java.util.List;
 public enum EventUtil {
     ;
 
-    @Setter
-    private static ObjectMapper objectMapper = new ObjectMapper();
+    private static final ObjectMapper objectMapper = new ObjectMapper();
 
     /**
      * Returns a Event object from a JSON string.
@@ -24,6 +22,10 @@ public enum EventUtil {
      * @return {@link Event}
      */
     public static Event toEvent(String json) {
+        return toEvent(objectMapper, json);
+    }
+
+    public static Event toEvent(ObjectMapper objectMapper, String json) {
         try {
             return objectMapper.readValue(json, Event.class);
         } catch (IOException e) {
@@ -39,6 +41,10 @@ public enum EventUtil {
      * @return A list of objects of the type specified.
      */
     public static <T> List<T> convertEventData(Event event) {
+        return convertEventData(objectMapper, event);
+    }
+
+    public static <T> List<T> convertEventData(ObjectMapper objectMapper, Event event) {
         return objectMapper.convertValue(event.getData(), new TypeReference<List<T>>() {
         });
     }
@@ -50,6 +56,10 @@ public enum EventUtil {
      * @return Event object as a JSON string.
      */
     public static String toJson(Event event) {
+        return toJson(objectMapper, event);
+    }
+
+    public static String toJson(ObjectMapper objectMapper, Event event) {
         try {
             return objectMapper.writeValueAsString(event);
         } catch (JsonProcessingException e) {
