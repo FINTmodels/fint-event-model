@@ -42,7 +42,7 @@ class EventUtilSpec extends Specification {
         event.addData(data)
 
         when:
-        List<TestDto> eventData = EventUtil.convertEventData(event,new TypeReference<List<TestDto>>() {})
+        List<TestDto> eventData = EventUtil.convertEventData(event, new TypeReference<List<TestDto>>() {})
 
         then:
         eventData.size() == 1

@@ -10,14 +10,38 @@ The Event model for FINT
 
 build.gradle
 
-```
+```groovy
 repositories {
     maven {
         url  "http://dl.bintray.com/fint/maven"
     }
 }
 
-compile('no.fint:fint-event-model:0.0.11')
+compile('no.fint:fint-event-model:0.0.12')
 ```
 
-https://bintray.com/fint/maven/fint-event-model
+## Usage
+
+Create new Event.
+
+```java
+Event event = new Event("rogfk.no", "FK1", "GET_ALL", "VFS");
+```
+
+Transform Event to json.
+
+```java
+String json = EventUtil.toJson(event);
+```
+
+Transform json to Event.
+
+```java
+Event event = EventUtil.toEvent(json);
+```
+
+Convert Event data into objects.
+
+```java
+List<TestDto> eventData = EventUtil.convertEventData(event, new TypeReference<List<TestDto>>() {});
+```
