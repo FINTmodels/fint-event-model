@@ -4,7 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/FINTmodels/fint-event-model/badge.svg?branch=master)](https://coveralls.io/github/FINTmodels/fint-event-model?branch=master)
 [![FINT javadocs](https://img.shields.io/badge/FINT-javadoc-blue.svg)](https://javadocs.felleskomponent.no/docs/fint-event-model/)
 
-The Event model for FINT
+Event model for FINT
 
 ## Installation
 
