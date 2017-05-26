@@ -12,7 +12,8 @@ import java.util.List;
  * Utility methods for converting events.
  */
 @Slf4j
-public class EventUtil {
+public enum EventUtil {
+    ;
 
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
