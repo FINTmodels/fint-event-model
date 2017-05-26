@@ -36,6 +36,15 @@ class EventSpec extends Specification {
         event.action == 'GET_ALL'
     }
 
+    def "Copy values from old event object into new"() {
+        when:
+        def originalEvent = new Event('rogfk.no', 'FK1', 'GET_ALL', 'VFS')
+        Event<String> newEvent = new Event<>(originalEvent)
+
+        then:
+        newEvent == originalEvent
+    }
+
     def "Check if event is health check when action is null"() {
         when:
         def event = new Event()
