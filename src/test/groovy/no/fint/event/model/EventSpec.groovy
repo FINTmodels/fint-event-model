@@ -55,7 +55,7 @@ class EventSpec extends Specification {
 
     def "Check if event is health check when action is HEALTH"() {
         when:
-        def event = new Event(action: DefaultActions.HEALTH)
+        def event = new Event(action: 'HEALTH')
 
         then:
         event.isHealthCheck()

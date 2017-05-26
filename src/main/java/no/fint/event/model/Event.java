@@ -249,7 +249,7 @@ public class Event<T> implements Serializable {
      */
     @JsonIgnore
     public boolean isHealthCheck() {
-        return DefaultActions.HEALTH.equals(action);
+        return DefaultActions.HEALTH.name().equals(action);
     }
 
     /**
