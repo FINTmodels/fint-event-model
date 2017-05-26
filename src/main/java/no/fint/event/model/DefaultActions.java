@@ -1,5 +1,7 @@
 package no.fint.event.model;
 
-public class DefaultActions {
+public enum DefaultActions {
+    ;
+
     public static final String HEALTH = "health";
 }
