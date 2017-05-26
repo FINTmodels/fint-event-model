@@ -46,6 +46,7 @@ class EventUtilSpec extends Specification {
 
         then:
         eventData.size() == 1
+        eventData.get(0).class == TestDto
         eventData[0].value == 'test'
     }
 
