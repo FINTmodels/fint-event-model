@@ -19,15 +19,15 @@ repositories {
     mavenCentral()
 }
 
-apply from: 'https://raw.githubusercontent.com/FINTlibs/fint-buildscripts/v1.0.7/dependencies.gradle'
+apply from: 'https://raw.githubusercontent.com/FINTlibs/fint-buildscripts/v1.0.11/dependencies.gradle'
 dependencies {
-    compile('com.fasterxml.jackson.core:jackson-databind:2.8.4')
+    compile('com.fasterxml.jackson.core:jackson-databind:2.8.8')
     compile("org.projectlombok:lombok:${lombokVersion}")
     compileOnly('org.slf4j:slf4j-api:1.7.25')
 
     testCompile('org.slf4j:slf4j-simple:1.7.25')
     testCompile('cglib:cglib-nodep:3.2.5')
-    testCompile('org.spockframework:spock-core:1.1-groovy-2.4-rc-3')
+    testCompile("org.spockframework:spock-core:${spockSpringVersion}")
 }
 
 task wrapper(type: Wrapper) {
@@ -41,6 +41,12 @@ javadoc {
     destinationDir = file('./javadocs/')
 }
 
+test {
+    testLogging {
+        events 'passed', 'skipped', 'failed'
+    }
+}
+
 jacocoTestReport {
     reports {
         xml.enabled true
@@ -48,5 +54,5 @@ jacocoTestReport {
 }
 
 if (project.hasProperty('bintrayUser') && project.hasProperty('bintrayKey')) {
-    apply from: 'https://raw.githubusercontent.com/FINTprosjektet/fint-buildscripts/v1.0.7/bintray.gradle'
+    apply from: 'https://raw.githubusercontent.com/FINTprosjektet/fint-buildscripts/v1.0.11/bintray.gradle'
 }

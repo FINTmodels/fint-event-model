@@ -1,5 +1,7 @@
 package no.fint.event.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,8 +53,8 @@ public class Event<T> implements Serializable {
     /**
      * This is the list of payload/data for the event.
      * <ul>
-     *  <li>For inbound events it should be queryfilters or data to be updated.</li>
-     *  <li>For outbound events it should be the data requested or the status of the updatecommand</li>
+     * <li>For inbound events it should be queryfilters or data to be updated.</li>
+     * <li>For outbound events it should be the data requested or the status of the update command</li>
      * </ul>
      */
     private List<T> data;
@@ -66,10 +68,11 @@ public class Event<T> implements Serializable {
 
     /**
      * Constructor that sets up an {@link Status#NEW} Event.
-     * @param orgId See {@link #orgId} for more informasjon.
-     * @param source See {@link #source} for more informasjon.
-     * @param action See {@link #action} for more informasjon.
-     * @param client See {@link #client} for more informasjon.
+     *
+     * @param orgId  See {@link #orgId} for more information.
+     * @param source See {@link #source} for more information.
+     * @param action See {@link #action} for more information.
+     * @param client See {@link #client} for more information.
      */
     public Event(String orgId, String source, String action, String client) {
         this.orgId = orgId;
@@ -91,7 +94,7 @@ public class Event<T> implements Serializable {
     }
 
     /**
-     * @param corrId See {@link #corrId} for more informasjon.
+     * @param corrId See {@link #corrId} for more information.
      */
     public void setCorrId(String corrId) {
         this.corrId = corrId;
@@ -105,7 +108,7 @@ public class Event<T> implements Serializable {
     }
 
     /**
-     * @param action See {@link #action} for more informasjon.
+     * @param action See {@link #action} for more information.
      */
     public void setAction(String action) {
         this.action = action;
@@ -119,7 +122,7 @@ public class Event<T> implements Serializable {
     }
 
     /**
-     * @param status See {@link Status} for more informasjon.
+     * @param status See {@link Status} for more information.
      */
     public void setStatus(Status status) {
         this.status = status;
@@ -133,7 +136,7 @@ public class Event<T> implements Serializable {
     }
 
     /**
-     * @param time See {@link #time} for more informasjon.
+     * @param time See {@link #time} for more information.
      */
     public void setTime(long time) {
         this.time = time;
@@ -147,7 +150,7 @@ public class Event<T> implements Serializable {
     }
 
     /**
-     * @param orgId See {@link #orgId} for more informasjon.
+     * @param orgId See {@link #orgId} for more information.
      */
     public void setOrgId(String orgId) {
         this.orgId = orgId;
@@ -161,7 +164,7 @@ public class Event<T> implements Serializable {
     }
 
     /**
-     * @param source See {@link #source} for more informasjon.
+     * @param source See {@link #source} for more information.
      */
     public void setSource(String source) {
         this.source = source;
@@ -175,7 +178,7 @@ public class Event<T> implements Serializable {
     }
 
     /**
-     * @param client See {@link #client} for more informasjon.
+     * @param client See {@link #client} for more information.
      */
     public void setClient(String client) {
         this.client = client;
@@ -189,7 +192,7 @@ public class Event<T> implements Serializable {
     }
 
     /**
-     * @param message See {@link #message} for more informasjon.
+     * @param message See {@link #message} for more information.
      */
     public void setMessage(String message) {
         this.message = message;
@@ -203,7 +206,7 @@ public class Event<T> implements Serializable {
     }
 
     /**
-     * @param data See {@link #data} for more informasjon.
+     * @param data See {@link #data} for more information.
      */
     public void setData(List<T> data) {
         this.data = data;
@@ -211,10 +214,22 @@ public class Event<T> implements Serializable {
 
     /**
      * Adds data to the ArrayList.
-     * @param data See {@link #data} for more informasjon.
+     *
+     * @param data See {@link #data} for more information.
      */
     public void addData(T data) {
         this.data.add(data);
+    }
+
+    /**
+     * Return true if the event has action HEALTH.
+     * Is not included in the json representation.
+     *
+     * @return true if the event has action HEALTH
+     */
+    @JsonIgnore
+    public boolean isHealthCheck() {
+        return DefaultActions.HEALTH.equals(action);
     }
 
     /**

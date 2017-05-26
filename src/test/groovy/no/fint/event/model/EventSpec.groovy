@@ -4,9 +4,9 @@ import spock.lang.Specification
 
 class EventSpec extends Specification {
 
-    def "Creating a empty Event object with default constructor"() {
+    def "Creating an empty Event object with default constructor"() {
         when:
-        Event event = new Event()
+        def event = new Event()
 
         then:
         event.corrId == null
@@ -20,9 +20,9 @@ class EventSpec extends Specification {
         event.action == null
     }
 
-    def "Creatning av Status.NEW Event object"() {
+    def "Creating a Status.NEW Event object"() {
         when:
-        Event event = new Event('rogfk.no', 'FK1', 'GET_ALL', 'VFS')
+        def event = new Event('rogfk.no', 'FK1', 'GET_ALL', 'VFS')
 
         then:
         event.corrId != null
@@ -34,5 +34,21 @@ class EventSpec extends Specification {
         event.orgId == 'rogfk.no'
         event.time > 0
         event.action == 'GET_ALL'
+    }
+
+    def "Check if event is health check when action is null"() {
+        when:
+        def event = new Event()
+
+        then:
+        !event.isHealthCheck()
+    }
+
+    def "Check if event is health check when action is HEALTH"() {
+        when:
+        def event = new Event(action: DefaultActions.HEALTH)
+
+        then:
+        event.isHealthCheck()
     }
 }
