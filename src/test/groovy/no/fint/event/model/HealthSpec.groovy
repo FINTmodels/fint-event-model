@@ -11,6 +11,16 @@ class HealthSpec extends Specification {
         then:
         health.status == null
         health.timestamp > 0L
-        health.time.length() > 0
+        health.time != null
+    }
+
+    def "Create a new instance of Health setting the values in the constructor"() {
+        when:
+        def health = new Health('Application healthy', System.currentTimeMillis())
+
+        then:
+        health.status == 'Application healthy'
+        health.timestamp > 0
+        health.time != null
     }
 }
