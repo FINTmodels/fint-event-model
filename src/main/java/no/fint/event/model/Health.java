@@ -24,7 +24,12 @@ public class Health {
     private long timestamp;
 
     public Health() {
-        timestamp = System.currentTimeMillis();
+        this.timestamp = System.currentTimeMillis();
+    }
+
+    public Health(String status) {
+        this.status = status;
+        this.timestamp = System.currentTimeMillis();
     }
 
     /**
