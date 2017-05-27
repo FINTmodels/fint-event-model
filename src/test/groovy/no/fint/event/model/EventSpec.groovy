@@ -13,6 +13,7 @@ class EventSpec extends Specification {
         event.client == null
         event.data.size() == 0
         event.message == null
+        event.query == null
         event.status == null
         event.source == null
         event.orgId == null
@@ -29,6 +30,7 @@ class EventSpec extends Specification {
         event.client == 'VFS'
         event.data.size() == 0
         event.message == null
+        event.query == null
         event.status == Status.NEW
         event.source == 'FK1'
         event.orgId == 'rogfk.no'
