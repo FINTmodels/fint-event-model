@@ -221,6 +221,14 @@ public class Event<T> implements Serializable {
     }
 
     /**
+     * @param message See {@link #message} for more information.
+     */
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+
+    /**
      * @return {@link #query}
      */
     public String getQuery() {
@@ -228,10 +236,10 @@ public class Event<T> implements Serializable {
     }
 
     /**
-     * @param message See {@link #message} for more information.
+     * @param query See {@link #query} for more information.
      */
-    public void setMessage(String message) {
-        this.message = message;
+    public void setQuery(String query) {
+        this.query = query;
     }
 
     /**
@@ -255,6 +263,18 @@ public class Event<T> implements Serializable {
      */
     public void addData(T data) {
         this.data.add(data);
+    }
+
+
+    /**
+     * Adds object to the ArrayList.
+     * Use this method if the Event instance does not have the type T set.
+     *
+     * @param data See {@link #data} for more information.
+     */
+    @SuppressWarnings("unchecked")
+    public void addObject(Object data) {
+        this.data.add((T) data);
     }
 
     /**

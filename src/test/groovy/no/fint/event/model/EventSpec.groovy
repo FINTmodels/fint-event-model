@@ -62,4 +62,17 @@ class EventSpec extends Specification {
         then:
         event.isHealthCheck()
     }
+
+    def "Add data to an existing event"() {
+        given:
+        def event = new Event<String>()
+
+        when:
+        event.addData('test1')
+        event.addObject('test2')
+
+        then:
+        event.data[0] == 'test1'
+        event.data[1] == 'test2'
+    }
 }
