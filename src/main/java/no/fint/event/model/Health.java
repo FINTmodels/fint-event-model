@@ -1,7 +1,7 @@
 package no.fint.event.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 
 import java.time.Instant;
 import java.time.ZoneId;
@@ -11,7 +11,7 @@ import java.time.format.DateTimeFormatter;
 /**
  * Health check object, can be created for each step of the health check process.
  */
-@Data
+@Getter
 @AllArgsConstructor
 public class Health {
     /**
