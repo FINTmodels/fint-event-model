@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/FINTmodels/fint-event-model.svg?branch=master)](https://travis-ci.org/FINTmodels/fint-event-model) 
 [![Coverage Status](https://coveralls.io/repos/github/FINTmodels/fint-event-model/badge.svg?branch=master)](https://coveralls.io/github/FINTmodels/fint-event-model?branch=master)
+
 Event model for FINT
 
 ## Installation
