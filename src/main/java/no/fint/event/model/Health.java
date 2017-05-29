@@ -15,6 +15,10 @@ import java.time.format.DateTimeFormatter;
 @AllArgsConstructor
 public class Health {
     /**
+     * The current component
+     */
+    private String component;
+    /**
      * Status for the current step of the health check
      */
     private String status;
@@ -28,6 +32,12 @@ public class Health {
     }
 
     public Health(String status) {
+        this.status = status;
+        this.timestamp = System.currentTimeMillis();
+    }
+
+    public Health(String component, String status) {
+        this.component = component;
         this.status = status;
         this.timestamp = System.currentTimeMillis();
     }
