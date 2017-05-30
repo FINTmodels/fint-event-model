@@ -1,5 +1,6 @@
-package no.fint.event.model;
+package no.fint.event.model.health;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -13,6 +14,7 @@ import java.time.format.DateTimeFormatter;
  */
 @Getter
 @AllArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Health {
     /**
      * The current component
@@ -36,10 +38,22 @@ public class Health {
         this.timestamp = System.currentTimeMillis();
     }
 
+    public Health(HealthStatus healthStatus) {
+        this(healthStatus.name());
+    }
+
     public Health(String component, String status) {
         this.component = component;
         this.status = status;
         this.timestamp = System.currentTimeMillis();
+    }
+
+    public Health(String component, HealthStatus healthStatus) {
+        this(component, healthStatus.name());
+    }
+
+    public Health(String component, HealthStatus healthStatus, long timestamp) {
+        this(component, healthStatus.name(), timestamp);
     }
 
     /**
