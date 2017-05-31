@@ -46,7 +46,7 @@ public enum Status {
      * Indicates that we never to a confirmation from the provider after delivering it according
      * to the TTL value.
      */
-    PROVIDER_NOT_CONFIRMED(14),
+    PROVIDER_NOT_CONFIRMED(103),
 
     /**
      * Indicates that the event could not be delivered to the provider.
@@ -89,7 +89,7 @@ public enum Status {
     /**
      * Indicates that the event is delivered to the cache service.
      */
-    CACHE(59),
+    CACHE(50),
     /**
      * Indicates that the event is the response form the cache service.
      */

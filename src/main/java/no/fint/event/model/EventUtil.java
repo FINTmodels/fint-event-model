@@ -40,6 +40,7 @@ public enum EventUtil {
      * Converts the data field in the Event to a class of <i>type</i>.
      *
      * @param event The Event to convert data from.
+     * @param type Type reference
      * @param <T>   Type of data
      * @return A list of objects of the type specified.
      */
