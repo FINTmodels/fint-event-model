@@ -7,7 +7,11 @@ public enum DefaultActions {
     /**
      * Tells the adapter to check communication with application and that the adapter can perform necessary actions {@link no.fint.event.model.health.Health}
      */
-    HEALTH;
+    HEALTH,
+    /**
+     * Registers orgId in provider
+     */
+    REGISTER_ORG_ID;
 
     /**
      * Gets a list of all enums as string
