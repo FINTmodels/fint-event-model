@@ -288,4 +288,15 @@ public class Event<T> implements Serializable {
         return DefaultActions.HEALTH.name().equals(action);
     }
 
+    /**
+     * Return true if the event has action REGISTER_ORG_ID.
+     * Is not included in the json representation.
+     *
+     * @return true if the event has action REGISTER_ORG_ID
+     */
+    @JsonIgnore
+    public boolean isRegisterOrgId() {
+        return DefaultActions.REGISTER_ORG_ID.name().equals(action);
+    }
+
 }

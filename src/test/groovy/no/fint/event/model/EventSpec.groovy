@@ -63,6 +63,14 @@ class EventSpec extends Specification {
         event.isHealthCheck()
     }
 
+    def "Check if event is register orgId when action is REGISTER_ORG_ID"() {
+        when:
+        def event = new Event(action: 'REGISTER_ORG_ID')
+
+        then:
+        event.isRegisterOrgId()
+    }
+
     def "Add data to an existing event"() {
         given:
         def event = new Event<String>()
