@@ -116,6 +116,18 @@ public class Event<T> implements Serializable {
     }
 
     /**
+     * Constructor that sets up an {@link Status#NEW} Event.
+     *
+     * @param orgId  See {@link #orgId} for more information.
+     * @param source See {@link #source} for more information.
+     * @param action See {@link #action} for more information.
+     * @param client See {@link #client} for more information.
+     */
+    public Event(String orgId, String source, Enum action, String client) {
+        this(orgId, source, action.name(), client);
+    }
+
+    /**
      * @return {@link #corrId}
      */
     public String getCorrId() {
@@ -141,6 +153,13 @@ public class Event<T> implements Serializable {
      */
     public void setAction(String action) {
         this.action = action;
+    }
+
+    /**
+     * @param action See {@link #action} for more information.
+     */
+    public void setAction(Enum action) {
+        this.action = action.name();
     }
 
     /**

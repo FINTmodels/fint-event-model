@@ -23,7 +23,7 @@ class EventSpec extends Specification {
 
     def "Creating a Status.NEW Event object"() {
         when:
-        def event = new Event('rogfk.no', 'FK1', 'GET_ALL', 'VFS')
+        def event = new Event('rogfk.no', 'FK1', DefaultActions.HEALTH, 'VFS')
 
         then:
         event.corrId != null
@@ -35,7 +35,7 @@ class EventSpec extends Specification {
         event.source == 'FK1'
         event.orgId == 'rogfk.no'
         event.time > 0
-        event.action == 'GET_ALL'
+        event.action == DefaultActions.HEALTH.name()
     }
 
     def "Copy values from old event object into new"() {
