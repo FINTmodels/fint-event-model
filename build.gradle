@@ -13,7 +13,7 @@ sourceCompatibility = 1.8
 
 jar {
     baseName = 'fint-event-model'
-    version = '0.0.26'
+    version = '0.0.27-SNAPSHOT'
 }
 
 repositories {

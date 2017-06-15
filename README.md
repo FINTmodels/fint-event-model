@@ -24,12 +24,12 @@ compile('no.fint:fint-event-model:0.0.26')
 Create new Event.
 
 ```java
-Event<String> event = new Event("rogfk.no", "FK1", "GET_ALL", "VFS");
+Event<String> event = new Event<>("rogfk.no", "FK1", "GET_ALL", "VFS");
 ```
 
 with action enum
 ```java
-Event<String> event = new Event("rogfk.no", "FK1", DefaultActions.HEALTH, "test");
+Event<String> event = new Event<>("rogfk.no", "FK1", DefaultActions.HEALTH, "test");
 ```
 
 
