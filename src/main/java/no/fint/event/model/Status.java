@@ -5,7 +5,7 @@ package no.fint.event.model;
  * <ul>
  *  <li>{@link #NEW}</li>
  *  <li>{@link #DOWNSTREAM_QUEUE}</li>
- *  <li>{@link #DELIVERED_TO_PROVIDER}</li>
+ *  <li>{@link #DELIVERED_TO_ADAPTER}</li>
  *  <li>{@link #ADAPTER_ACCEPTED}</li>
  *  <li>{@link #ADAPTER_NOT_CONFIRMED}</li>
  *  <li>{@link #UNABLE_TO_DELIVER}</li>
@@ -31,10 +31,10 @@ public enum Status {
     DOWNSTREAM_QUEUE(11),
 
     /**
-     * Indicates that the event is delivered to the provider, but we don't know if
-     * the provider will process the event yet.
+     * Indicates that the event is delivered to the adapter, but we don't know if
+     * the adapter will process the event yet.
      */
-    DELIVERED_TO_PROVIDER(12),
+    DELIVERED_TO_ADAPTER(12),
 
     /**
      * Indicates that the event is accepted and understood by the adapter. The adapter will
@@ -102,7 +102,7 @@ public enum Status {
     /**
      * Indicates that we cannot find any corresponding events.
      */
-    ADAPTER_RESPONSE_ORPHANT(100);
+    ADAPTER_RESPONSE_ORPHANED(100);
 
     private final int index;
 
