@@ -17,6 +17,8 @@ package no.fint.event.model;
  *  <li>{@link #SENT_TO_CLIENT}</li>
  *  <li>{@link #CACHE}</li>
  *  <li>{@link #CACHE_RESPONSE}</li>
+ *  <li>{@link #ERROR}</li>
+ *  <li>{@link #ADAPTER_RESPONSE_ORPHANED}</li>
  * </ul>
  */
 public enum Status {
@@ -43,7 +45,7 @@ public enum Status {
     ADAPTER_ACCEPTED(13),
 
     /**
-     * Indicates that we never to a confirmation from the adapter after delivering it according
+     * Indicates that we never received a confirmation from the adapter after delivering it according
      * to the TTL value.
      */
     ADAPTER_NOT_CONFIRMED(103),
@@ -60,7 +62,7 @@ public enum Status {
     NO_RESPONSE_FROM_ADAPTER(101),
 
     /**
-     * Indicates that the adapter recieved the event, but could not process it. Reasons could be:
+     * Indicates that the adapter received the event, but could not process it. Reasons could be:
      * - could not understand the event
      * - could not communicate with the source system
      */
@@ -77,7 +79,7 @@ public enum Status {
     UPSTREAM_QUEUE(15),
 
     /**
-     * Indicates that the event is put int the temp upstream event queue.
+     * Indicates that the event is put int the temp upstream event queue. Use by the health check.
      */
     TEMP_UPSTREAM_QUEUE(16),
 
@@ -91,7 +93,7 @@ public enum Status {
      */
     CACHE(50),
     /**
-     * Indicates that the event is the response form the cache service.
+     * Indicates that the event is the response from the cache service.
      */
     CACHE_RESPONSE(51),
     /**
