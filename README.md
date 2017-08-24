@@ -16,7 +16,7 @@ repositories {
     }
 }
 
-compile('no.fint:fint-event-model:1.0.0')
+compile('no.fint:fint-event-model:2.0.0')
 ```
 
 ## Usage
