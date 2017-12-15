@@ -1,7 +1,5 @@
 package no.fint.event.model;
 
-import java.util.List;
-
 public class EventResponse {
 
     /**

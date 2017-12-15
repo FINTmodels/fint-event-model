@@ -52,11 +52,6 @@ public class Event<T> implements Serializable {
      */
     private String client;
     /**
-     * This message should be set if something goes wrong. It should typically describe what went wrong,
-     * for example a stack trace or an error message.
-     */
-    //private String message;
-    /**
      * This is the list of payload/data for the event.
      * <ul>
      * <li>For inbound events it should be queryfilters or data to be updated.</li>
@@ -64,11 +59,6 @@ public class Event<T> implements Serializable {
      * </ul>
      */
     private List<T> data;
-    /**
-     * The query value is set when@ the consumer needs to send a value to the provider and adapter.
-     */
-    //private String query;
-
     /**
      *
      */
@@ -333,7 +323,6 @@ public class Event<T> implements Serializable {
     }
 
     /**
-     *
      * @return
      */
     public ResponseStatus getResponseStatus() {
@@ -341,7 +330,6 @@ public class Event<T> implements Serializable {
     }
 
     /**
-     *
      * @param responseStatus
      */
     public void setResponseStatus(ResponseStatus responseStatus) {
