@@ -55,11 +55,7 @@ public class Event<T> implements Serializable {
      * This message should be set if something goes wrong. It should typically describe what went wrong,
      * for example a stack trace or an error message.
      */
-    private String message;
-    /**
-     * The query value is set when@ the consumer needs to send a value to the provider and adapter.
-     */
-    private String query;
+    //private String message;
     /**
      * This is the list of payload/data for the event.
      * <ul>
@@ -68,6 +64,20 @@ public class Event<T> implements Serializable {
      * </ul>
      */
     private List<T> data;
+    /**
+     * The query value is set when@ the consumer needs to send a value to the provider and adapter.
+     */
+    //private String query;
+
+    /**
+     *
+     */
+    private EventRequest request;
+
+    /**
+     *
+     */
+    private EventResponse response;
 
     /**
      * Default constructor that create an empty Event object.
@@ -90,8 +100,8 @@ public class Event<T> implements Serializable {
         this.orgId = event.getOrgId();
         this.source = event.getSource();
         this.client = event.getClient();
-        this.message = event.getMessage();
-        this.query = event.getQuery();
+        this.request = event.getRequest();
+        this.response = event.getResponse();
         this.data = event.getData();
     }
 
@@ -151,15 +161,15 @@ public class Event<T> implements Serializable {
     /**
      * @param action See {@link #action} for more information.
      */
-    public void setAction(String action) {
-        this.action = action;
+    public void setAction(Enum action) {
+        this.action = action.name();
     }
 
     /**
      * @param action See {@link #action} for more information.
      */
-    public void setAction(Enum action) {
-        this.action = action.name();
+    public void setAction(String action) {
+        this.action = action;
     }
 
     /**
@@ -233,32 +243,44 @@ public class Event<T> implements Serializable {
     }
 
     /**
-     * @return {@link #message}
+     * @return {@link EventResponse#message}
      */
     public String getMessage() {
-        return message;
+        if (response == null) {
+            return null;
+        }
+        return response.getMessage();
     }
 
     /**
-     * @param message See {@link #message} for more information.
+     * @param message See {@link EventResponse#message} for more information.
      */
     public void setMessage(String message) {
-        this.message = message;
+        if (response == null) {
+            response = new EventResponse();
+        }
+        this.response.setMessage(message);
     }
 
 
     /**
-     * @return {@link #query}
+     * @return {@link EventRequest#query}
      */
     public String getQuery() {
-        return query;
+        if (this.request == null) {
+            return null;
+        }
+        return this.request.getQuery();
     }
 
     /**
-     * @param query See {@link #query} for more information.
+     * @param query See {@link EventRequest#query} for more information.
      */
     public void setQuery(String query) {
-        this.query = query;
+        if (this.request == null) {
+            this.request = new EventRequest();
+        }
+        this.request.setQuery(query);
     }
 
     /**
@@ -294,6 +316,36 @@ public class Event<T> implements Serializable {
     @SuppressWarnings("unchecked")
     public void addObject(Object data) {
         this.data.add((T) data);
+    }
+
+    /**
+     * @return
+     */
+    private EventRequest getRequest() {
+        return request;
+    }
+
+    /**
+     * @return
+     */
+    private EventResponse getResponse() {
+        return response;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public ResponseStatus getResponseStatus() {
+        return response.getResponseStatus();
+    }
+
+    /**
+     *
+     * @param responseStatus
+     */
+    public void setResponseStatus(ResponseStatus responseStatus) {
+        response.setResponseStatus(responseStatus);
     }
 
     /**
