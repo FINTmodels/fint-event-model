@@ -8,6 +8,9 @@ public class EventResponse {
      */
     private String message;
 
+    /**
+     * Shows the status of the event that was processed by the adapter.
+     */
     private ResponseStatus responseStatus;
 
     public String getMessage() {

@@ -60,12 +60,12 @@ public class Event<T> implements Serializable {
      */
     private List<T> data;
     /**
-     *
+     * The values that relates to the event request.
      */
     private EventRequest request;
 
     /**
-     *
+     * The values that relates to the event response.
      */
     private EventResponse response;
 
@@ -309,30 +309,36 @@ public class Event<T> implements Serializable {
     }
 
     /**
-     * @return
+     * @return see {@link EventRequest} for more information.
      */
     private EventRequest getRequest() {
         return request;
     }
 
     /**
-     * @return
+     * @return see {@link EventResponse} for more information
      */
     private EventResponse getResponse() {
         return response;
     }
 
     /**
-     * @return
+     * @return see {@link ResponseStatus} for more information
      */
     public ResponseStatus getResponseStatus() {
+        if (response == null) {
+            return null;
+        }
         return response.getResponseStatus();
     }
 
     /**
-     * @param responseStatus
+     * @param responseStatus See {@link ResponseStatus} from more information
      */
     public void setResponseStatus(ResponseStatus responseStatus) {
+        if (response == null) {
+            response = new EventResponse();
+        }
         response.setResponseStatus(responseStatus);
     }
 

@@ -57,7 +57,8 @@ class EventSpec extends Specification {
 
     def "Check if event is health check when action is HEALTH"() {
         when:
-        def event = new Event(action: 'HEALTH')
+        def event = new Event()
+        event.setAction(DefaultActions.HEALTH)
 
         then:
         event.isHealthCheck()
@@ -82,5 +83,41 @@ class EventSpec extends Specification {
         then:
         event.data[0] == 'test1'
         event.data[1] == 'test2'
+    }
+
+    def "Create EventRequest if value is null when setting query"() {
+        given:
+        def event = new Event()
+
+        when:
+        event.setQuery('test-query')
+        def query = event.getQuery()
+
+        then:
+        query == 'test-query'
+    }
+
+    def "Create EventResponse if value is null when setting message"() {
+        given:
+        def event = new Event()
+
+        when:
+        event.setMessage('test-message')
+        def message = event.getMessage()
+
+        then:
+        message == 'test-message'
+    }
+
+    def "Create EventResponse if value is null when setting ResponseStatus"() {
+        given:
+        def event = new Event()
+
+        when:
+        event.setResponseStatus(ResponseStatus.ERROR)
+        def responseStatus = event.getResponseStatus()
+
+        then:
+        responseStatus == ResponseStatus.ERROR
     }
 }
