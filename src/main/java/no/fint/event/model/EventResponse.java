@@ -1,6 +1,11 @@
 package no.fint.event.model;
 
-public class EventResponse {
+import lombok.ToString;
+
+import java.io.Serializable;
+
+@ToString
+public class EventResponse implements Serializable {
 
     /**
      * This message should be set if something goes wrong. It should typically describe what went wrong,

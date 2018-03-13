@@ -22,6 +22,18 @@ class EventUtilSpec extends Specification {
         event.action == 'GET_ALL'
     }
 
+    def "Print Event to stdout"() {
+        given:
+        Event event = new Event('rogfk.no', 'fk', 'GET_ALL', 'myClient')
+
+        when:
+        println(event)
+        println(EventUtil.toJson(event))
+
+        then:
+        true
+    }
+
     def "Convert Event object to JSON"() {
         given:
         Event event = new Event('rogfk.no', 'fk', 'GET_ALL', 'myClient')

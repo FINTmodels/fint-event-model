@@ -120,4 +120,38 @@ class EventSpec extends Specification {
         then:
         responseStatus == ResponseStatus.ERROR
     }
+
+    def "Safe to call getters on nested attributes when not set"() {
+        when:
+        def event = new Event();
+
+        then:
+        event.getQuery() == null
+        event.getMessage() == null
+        event.getResponseStatus() == null
+    }
+
+    def "Set request attributes on event"() {
+        given:
+        def event = new Event(action: 'UPDATE_SOMETHING', source: 'Spock', orgId: 'mock.no', client: 'none')
+
+        when:
+        event.setQuery("Some Query")
+
+        then:
+        event.getQuery()
+    }
+
+    def "Set response attributes on event"() {
+        given:
+        def event = new Event(action: 'UPDATE_SOMETHING', source: 'Spock', orgId: 'mock.no', client: 'none')
+
+        when:
+        event.setResponseStatus(ResponseStatus.ACCEPTED)
+        event.setMessage("Doubleplus super")
+
+        then:
+        event.getResponseStatus() == ResponseStatus.ACCEPTED
+        event.getMessage()
+    }
 }

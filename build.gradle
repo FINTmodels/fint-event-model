@@ -13,16 +13,15 @@ sourceCompatibility = 1.8
 
 jar {
     baseName = 'fint-event-model'
-    version = '3.0.0'
 }
 
 repositories {
     mavenCentral()
 }
 
-apply from: 'https://raw.githubusercontent.com/FINTlibs/fint-buildscripts/v1.1.0/dependencies.gradle'
+apply from: 'https://raw.githubusercontent.com/FINTlibs/fint-buildscripts/v1.2.0/dependencies.gradle'
 dependencies {
-    compile('com.fasterxml.jackson.core:jackson-databind:2.9.2')
+    compile('com.fasterxml.jackson.core:jackson-databind:2.9.4')
     compile("org.projectlombok:lombok:${lombokVersion}")
     compileOnly('org.slf4j:slf4j-api:1.7.25')
 
@@ -55,5 +54,5 @@ jacocoTestReport {
 }
 
 if (project.hasProperty('bintrayUser') && project.hasProperty('bintrayKey')) {
-    apply from: 'https://raw.githubusercontent.com/FINTprosjektet/fint-buildscripts/v1.1.0/bintray.gradle'
+    apply from: 'https://raw.githubusercontent.com/FINTprosjektet/fint-buildscripts/v1.2.0/bintray.gradle'
 }
