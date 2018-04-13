@@ -343,6 +343,26 @@ public class Event<T> implements Serializable {
     }
 
     /**
+     * @return see {@link EventResponse#statusCode} for more information
+     */
+    public String getStatusCode() {
+        if (response == null) {
+            response = new EventResponse();
+        }
+        return response.getStatusCode();
+    }
+
+    /**
+     * @param statusCode See {@link EventResponse#statusCode} for more information
+     */
+    public void setStatusCode(String statusCode) {
+        if (response == null) {
+            response = new EventResponse();
+        }
+        response.setStatusCode(statusCode);
+    }
+
+    /**
      * Return true if the event has action HEALTH.
      * Is not included in the json representation.
      *

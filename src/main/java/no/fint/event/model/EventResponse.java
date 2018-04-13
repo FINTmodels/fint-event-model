@@ -14,6 +14,12 @@ public class EventResponse implements Serializable {
     private String message;
 
     /**
+     * This status code should be set to some code that can be used to trace the origin of the error
+     * in the back end system.
+     */
+    private String statusCode;
+
+    /**
      * Shows the status of the event that was processed by the adapter.
      */
     private ResponseStatus responseStatus;
@@ -32,5 +38,13 @@ public class EventResponse implements Serializable {
 
     public void setResponseStatus(ResponseStatus responseStatus) {
         this.responseStatus = responseStatus;
+    }
+
+    public String getStatusCode() {
+        return statusCode;
+    }
+
+    public void setStatusCode(String statusCode) {
+        this.statusCode = statusCode;
     }
 }
