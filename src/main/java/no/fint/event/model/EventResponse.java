@@ -1,10 +1,10 @@
 package no.fint.event.model;
 
-import lombok.ToString;
+import lombok.Data;
 
 import java.io.Serializable;
 
-@ToString
+@Data
 public class EventResponse implements Serializable {
 
     /**
@@ -24,27 +24,4 @@ public class EventResponse implements Serializable {
      */
     private ResponseStatus responseStatus;
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public ResponseStatus getResponseStatus() {
-        return responseStatus;
-    }
-
-    public void setResponseStatus(ResponseStatus responseStatus) {
-        this.responseStatus = responseStatus;
-    }
-
-    public String getStatusCode() {
-        return statusCode;
-    }
-
-    public void setStatusCode(String statusCode) {
-        this.statusCode = statusCode;
-    }
 }
