@@ -1,10 +1,10 @@
 package no.fint.event.model;
 
-import lombok.ToString;
+import lombok.Data;
 
 import java.io.Serializable;
 
-@ToString
+@Data
 public class EventResponse implements Serializable {
 
     /**
@@ -14,23 +14,14 @@ public class EventResponse implements Serializable {
     private String message;
 
     /**
+     * This status code should be set to some code that can be used to trace the origin of the error
+     * in the back end system.
+     */
+    private String statusCode;
+
+    /**
      * Shows the status of the event that was processed by the adapter.
      */
     private ResponseStatus responseStatus;
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public ResponseStatus getResponseStatus() {
-        return responseStatus;
-    }
-
-    public void setResponseStatus(ResponseStatus responseStatus) {
-        this.responseStatus = responseStatus;
-    }
 }

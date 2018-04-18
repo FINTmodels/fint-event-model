@@ -149,9 +149,11 @@ class EventSpec extends Specification {
         when:
         event.setResponseStatus(ResponseStatus.ACCEPTED)
         event.setMessage("Doubleplus super")
+        event.setStatusCode("R2D2")
 
         then:
         event.getResponseStatus() == ResponseStatus.ACCEPTED
         event.getMessage()
+        event.getStatusCode()
     }
 }
