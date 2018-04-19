@@ -1,5 +1,7 @@
 package no.fint.event.model
 
+import com.fasterxml.jackson.databind.ObjectMapper
+import groovy.json.JsonSlurper
 import spock.lang.Specification
 
 class EventSpec extends Specification {
@@ -155,5 +157,34 @@ class EventSpec extends Specification {
         event.getResponseStatus() == ResponseStatus.ACCEPTED
         event.getMessage()
         event.getStatusCode()
+    }
+
+    def "Serialize response object to JSON"() {
+        given:
+        def event = new Event(action: 'UPDATE_SOMETHING', source: 'Spock', orgId: 'mock.no', client: 'none')
+
+        when:
+        event.setResponseStatus(ResponseStatus.ACCEPTED)
+        event.setMessage("Doubleplus super")
+        event.setStatusCode("R2D2")
+        event.setProblems([new Problem(field: "monkey", message: "Only chimpanzees allowed", code: 9999)])
+
+        then:
+        event.getResponseStatus() == ResponseStatus.ACCEPTED
+        event.getMessage()
+        event.getStatusCode()
+        event.getProblems().size() == 1
+
+        when:
+        def jsonSlurper = new JsonSlurper()
+        def objectMapper = new ObjectMapper()
+        def result = objectMapper.writeValueAsString(event.getResponse())
+        println(result)
+        def object = jsonSlurper.parseText(result)
+
+        then:
+        object
+        object.problems
+        object.responseStatus == "ACCEPTED"
     }
 }
