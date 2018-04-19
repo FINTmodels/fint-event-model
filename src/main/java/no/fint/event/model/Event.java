@@ -311,14 +311,16 @@ public class Event<T> implements Serializable {
     /**
      * @return see {@link EventRequest} for more information.
      */
-    private EventRequest getRequest() {
+    @JsonIgnore
+    public EventRequest getRequest() {
         return request;
     }
 
     /**
      * @return see {@link EventResponse} for more information
      */
-    private EventResponse getResponse() {
+    @JsonIgnore
+    public EventResponse getResponse() {
         return response;
     }
 
@@ -360,6 +362,26 @@ public class Event<T> implements Serializable {
             response = new EventResponse();
         }
         response.setStatusCode(statusCode);
+    }
+
+    /**
+     * @return see {@link EventResponse#problems} for more information
+     */
+    public List<Problem> getProblems() {
+        if (response == null) {
+            response = new EventResponse();
+        }
+        return response.getProblems();
+    }
+
+    /**
+     * @param problems See {@link EventResponse#problems} for more information
+     */
+    public void setProblems(List<Problem> problems) {
+        if (response == null) {
+            response = new EventResponse();
+        }
+        response.setProblems(problems);
     }
 
     /**

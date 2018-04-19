@@ -3,6 +3,7 @@ package no.fint.event.model;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 public class EventResponse implements Serializable {
@@ -24,4 +25,8 @@ public class EventResponse implements Serializable {
      */
     private ResponseStatus responseStatus;
 
+    /**
+     * Shows the problems the system has found when processing this event's request.
+     */
+    private List<Problem> problems;
 }
