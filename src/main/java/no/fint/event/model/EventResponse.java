@@ -7,6 +7,7 @@ import java.io.Serializable;
 @Data
 public class EventResponse implements Serializable {
 
+    private static final long serialVersionUID = -1075199100920918308L;
     /**
      * This message should be set if something goes wrong. It should typically describe what went wrong,
      * for example a stack trace or an error message.
