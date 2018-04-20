@@ -46,6 +46,22 @@ class EventUtilSpec extends Specification {
         output.orgId == 'rogfk.no'
     }
 
+    def "Convert Event data using type factory"() {
+        given:
+        Map<String, String> data = new LinkedHashMap<>()
+        data.put('value', 'test')
+        Event event = new Event('rogfk.no', 'fk', 'GET_ALL', 'myClient')
+        event.addData(data)
+
+        when:
+        List<TestDto> eventData = EventUtil.convertEventData(event, TestDto)
+
+        then:
+        eventData.size() == 1
+        eventData.get(0).class == TestDto
+        eventData[0].value == 'test'
+    }
+
     def "Convert Event data"() {
         given:
         Map<String, String> data = new LinkedHashMap<>()

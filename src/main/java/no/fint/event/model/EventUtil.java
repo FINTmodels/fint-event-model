@@ -53,6 +53,15 @@ public enum EventUtil {
         return objectMapper.convertValue(dataList, type);
     }
 
+    public static <T> List<T> convertEventData(Event event, Class<T> type) {
+        return convertEventData(objectMapper, event, type);
+    }
+
+    public static <T> List<T> convertEventData(ObjectMapper objectMapper, Event event, Class<T> type) {
+        List<?> dataList = event.getData();
+        return objectMapper.convertValue(dataList, objectMapper.getTypeFactory().constructCollectionType(List.class, type));
+    }
+
     /**
      * Returns a JSON string of the Event.
      *
