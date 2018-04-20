@@ -1,0 +1,26 @@
+{
+  "corrId": "a91cdb9b-0292-4baf-9a27-578642634129",
+  "action": "GET_ALL",
+  "status": "NEW",
+  "time": 1524131147134,
+  "orgId": "rogfk.no",
+  "source": "fk",
+  "client": "myClient",
+  "data": [],
+  "message": "There is a disturbance in the Force",
+  "query": "what",
+  "problems": [
+    {
+      "field": "monkey",
+      "message": "Only chimpanzees allowed",
+      "code": "9999"
+    },
+    {
+      "field": "jedi",
+      "message": "Luke not found",
+      "code": "44"
+    }
+  ],
+  "statusCode": "JEDI-XX",
+  "responseStatus": "ERROR"
+}

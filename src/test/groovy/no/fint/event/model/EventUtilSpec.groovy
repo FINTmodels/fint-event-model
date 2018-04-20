@@ -85,4 +85,44 @@ class EventUtilSpec extends Specification {
         event == null
     }
 
+    def "Read Event from event.json"() {
+        given:
+        def objectMapper = new ObjectMapper()
+        def json = "{\n" +
+                "  \"corrId\": \"a91cdb9b-0292-4baf-9a27-578642634129\",\n" +
+                "  \"action\": \"GET_ALL\",\n" +
+                "  \"status\": \"NEW\",\n" +
+                "  \"time\": 1524131147134,\n" +
+                "  \"orgId\": \"rogfk.no\",\n" +
+                "  \"source\": \"fk\",\n" +
+                "  \"client\": \"myClient\",\n" +
+                "  \"data\": [],\n" +
+                "  \"message\": \"There is a disturbance in the Force\",\n" +
+                "  \"query\": \"what\",\n" +
+                "  \"problems\": [\n" +
+                "    {\n" +
+                "      \"field\": \"monkey\",\n" +
+                "      \"message\": \"Only chimpanzees allowed\",\n" +
+                "      \"code\": \"9999\"\n" +
+                "    },\n" +
+                "    {\n" +
+                "      \"field\": \"jedi\",\n" +
+                "      \"message\": \"Luke not found\",\n" +
+                "      \"code\": \"44\"\n" +
+                "    }\n" +
+                "  ],\n" +
+                "  \"statusCode\": \"JEDI-XX\",\n" +
+                "  \"responseStatus\": \"ERROR\"\n" +
+                "}"
+
+        when:
+        def event = objectMapper.readValue(getClass().getResourceAsStream("/event.json"), Event)
+
+        then:
+        event
+        event.problems.size() == 2
+        event.status == Status.NEW
+        event.responseStatus == ResponseStatus.ERROR
+        event.statusCode == "JEDI-XX"
+    }
 }
