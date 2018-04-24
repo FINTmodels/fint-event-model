@@ -320,7 +320,8 @@ public class Event<T> implements Serializable {
     /**
      * @return see {@link EventResponse} for more information
      */
-    private EventResponse getResponse() {
+    @JsonIgnore
+    public EventResponse getResponse() {
         return response;
     }
 
