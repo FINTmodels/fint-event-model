@@ -32,11 +32,14 @@ public class Event<T> implements Serializable {
      * For example it could be <code>GET_ALL_EMPLOYEES</code>
      */
     private String action;
-
     /**
      * The operation to be performed on the data.  See {@link Operation} for details.
      */
     private Operation operation;
+    /**
+     * Target information element for which the {@link #operation} is relevant.
+     */
+    private String target;
     /**
      * Status of the event. See {@link Status} for more informasjon.
      */
@@ -93,6 +96,7 @@ public class Event<T> implements Serializable {
         this.corrId = event.getCorrId();
         this.action = event.getAction();
         this.operation = event.getOperation();
+        this.target = event.getTarget();
         this.status = event.getStatus();
         this.time = event.getTime();
         this.orgId = event.getOrgId();
@@ -182,6 +186,20 @@ public class Event<T> implements Serializable {
      */
     public void setOperation(Operation operation) {
         this.operation = operation;
+    }
+
+    /**
+     * @return {@link #target}
+     */
+    public String getTarget() {
+        return target;
+    }
+
+    /**
+     * @param target {@link #target}
+     */
+    public void setTarget(String target) {
+        this.target = target;
     }
 
     /**
