@@ -2,8 +2,10 @@ package no.fint.event.model;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class Problem {
+public class Problem implements Serializable {
     /**
      * The name of the field the problem relates to.  Either a simple name or a JSON Path to the field.
      */
