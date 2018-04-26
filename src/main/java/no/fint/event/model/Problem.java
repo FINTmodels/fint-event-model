@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 @Data
 public class Problem implements Serializable {
+    private static final long serialVersionUID = -8067829906715894759L;
     /**
      * The name of the field the problem relates to.  Either a simple name or a JSON Path to the field.
      */
