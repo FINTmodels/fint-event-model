@@ -187,4 +187,32 @@ class EventSpec extends Specification {
         object.problems
         object.responseStatus == "ACCEPTED"
     }
+
+    def "Event can be serialized"() {
+        given:
+        def event = new Event(action: 'UPDATE_SOMETHING', source: 'Spock', orgId: 'mock.no', client: 'none')
+        event.setResponseStatus(ResponseStatus.ACCEPTED)
+        event.setMessage("Doubleplus super")
+        event.setStatusCode("R2D2")
+        event.setProblems([new Problem(field: "monkey", message: "Only chimpanzees allowed", code: 9999)])
+
+        when:
+        def bos = new ByteArrayOutputStream()
+        def oos = new ObjectOutputStream(bos)
+        oos.writeObject(event)
+        oos.close()
+        def bytes = bos.toByteArray()
+
+        then:
+        bytes.length
+
+        when:
+        def bis = new ByteArrayInputStream(bytes)
+        def ois = new ObjectInputStream(bis)
+        def copy = ois.readObject()
+
+        then:
+        copy instanceof Event
+        copy.equals(event)
+    }
 }
