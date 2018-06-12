@@ -38,7 +38,7 @@ public class Event<T> implements Serializable {
      */
     private Operation operation;
     /**
-     * Status of the event. See {@link Status} for more informasjon.
+     * Status of the event. See {@link Status} for more information.
      */
     private Status status;
     /**
@@ -61,7 +61,7 @@ public class Event<T> implements Serializable {
     /**
      * This is the list of payload/data for the event.
      * <ul>
-     * <li>For inbound events it should be queryfilters or data to be updated.</li>
+     * <li>For inbound events it should be query filters or data to be updated.</li>
      * <li>For outbound events it should be the data requested or the status of the update command</li>
      * </ul>
      */
