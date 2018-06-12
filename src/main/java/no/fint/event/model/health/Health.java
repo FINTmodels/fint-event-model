@@ -17,6 +17,7 @@ import java.time.format.DateTimeFormatter;
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Health implements Serializable {
+    private static final long serialVersionUID = -4363132400859528104L;
     /**
      * The current component
      */

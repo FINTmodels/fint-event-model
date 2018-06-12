@@ -21,6 +21,6 @@ public enum Operation {
     /**
      * Request data deletion.  An existing information entity is to be removed.
      */
-    DELETE;
+    DELETE
 
 }
