@@ -1,6 +1,6 @@
 # FINT Event Model
 
-[![Build Status](https://travis-ci.org/FINTmodels/fint-event-model.svg?branch=master)](https://travis-ci.org/FINTmodels/fint-event-model) 
+[![Build Status](https://jenkins.fintlabs.no/buildStatus/icon?job=FINTmodels/fint-event-model/master)](https://jenkins.fintlabs.no/job/FINTmodels/fint-event-model/master)
 [![Coverage Status](https://coveralls.io/repos/github/FINTmodels/fint-event-model/badge.svg?branch=master)](https://coveralls.io/github/FINTmodels/fint-event-model?branch=master)
 
 Event model for FINT
