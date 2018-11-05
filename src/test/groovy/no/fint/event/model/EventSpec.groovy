@@ -190,7 +190,7 @@ class EventSpec extends Specification {
 
     def "Event can be serialized"() {
         given:
-        def event = new Event(action: 'UPDATE_SOMETHING', source: 'Spock', orgId: 'mock.no', client: 'none')
+        def event = new Event(action: 'UPDATE_SOMETHING', source: 'Spock', orgId: 'mock.no', client: 'none', operation: Operation.UPDATE, target: 'SOMETHING')
         event.setResponseStatus(ResponseStatus.ACCEPTED)
         event.setMessage("Doubleplus super")
         event.setStatusCode("R2D2")
