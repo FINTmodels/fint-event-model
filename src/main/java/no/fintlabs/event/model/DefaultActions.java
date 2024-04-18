@@ -1,11 +1,13 @@
-package no.fint.event.model;
+package no.fintlabs.event.model;
+
+import no.fintlabs.event.model.health.Health;
 
 import java.util.Arrays;
 import java.util.List;
 
 public enum DefaultActions {
     /**
-     * Tells the adapter to check communication with application and that the adapter can perform necessary actions {@link no.fint.event.model.health.Health}
+     * Tells the adapter to check communication with application and that the adapter can perform necessary actions {@link Health}
      */
     HEALTH,
     /**

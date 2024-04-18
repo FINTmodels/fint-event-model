@@ -1,4 +1,4 @@
-package no.fint.event.model;
+package no.fintlabs.event.model;
 
 /**
  * The response status indicates the result of the event from the adapter.

@@ -1,4 +1,4 @@
-package no.fint.event.model;
+package no.fintlabs.event.model;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;

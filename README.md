@@ -12,11 +12,11 @@ build.gradle
 ```groovy
 repositories {
     maven {
-        url  "http://dl.bintray.com/fint/maven"
+        url  "http://repo.fintlabs.no/releases"
     }
 }
 
-compile('no.fint:fint-event-model:3.0.0')
+implementation 'no.fintlabs:fint-event-model:4.0.0'
 ```
 
 ## Usage

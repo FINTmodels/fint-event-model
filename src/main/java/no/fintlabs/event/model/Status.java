@@ -1,4 +1,4 @@
-package no.fint.event.model;
+package no.fintlabs.event.model;
 
 /**
  * The Status Enum indicates what step the {@link Event} is at. The steps can be:

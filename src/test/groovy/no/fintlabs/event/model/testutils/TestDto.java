@@ -1,4 +1,4 @@
-package no.fint.event.model.testutils;
+package no.fintlabs.event.model.testutils;
 
 public class TestDto {
     private String value;
