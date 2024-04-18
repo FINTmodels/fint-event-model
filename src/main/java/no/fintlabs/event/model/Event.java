@@ -1,4 +1,4 @@
-package no.fint.event.model;
+package no.fintlabs.event.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

@@ -1,4 +1,4 @@
-package no.fint.event.model.health;
+package no.fintlabs.event.model.health;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
