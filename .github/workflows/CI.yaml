@@ -22,15 +22,5 @@ jobs:
           distribution: 'adopt'
           java-version: '8'
 
-      - name: Build artefacts
-        run: |
-          gradle build --no-daemon
-          mkdir data
-          cp ./build/libs/${GITHUB_REPOSITORY#*/}*.jar ./data/app.jar
-          echo "Branch: ${{ github.ref}}"
-
-      - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v4.6.0
-        with:
-          name: ${{steps.get_repo.outputs.REPO}}
-          path: ./data/app.jar
+      - name: Run Gradle build
+        run: ./gradlew build
