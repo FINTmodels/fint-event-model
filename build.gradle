@@ -3,6 +3,9 @@ plugins {
     id 'com.github.kt3k.coveralls' version '2.8.2'
 }
 
+
+version = project.findProperty("version") == null ? "0.0.1-SNAPSHOT" : (String) project.findProperty("version")
+
 apply plugin: 'groovy'
 apply plugin: 'java'
 apply plugin: 'maven'
