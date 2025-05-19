@@ -8,7 +8,7 @@ public final class ODataQueryFilter {
     private static final Pattern ODATA_FILTER =
             Pattern.compile("(?i)([?&])(\\$filter=)([^&]*)");
 
-    public static String maskODataFilter(String q) {
+    public static String maskFilter(String q) {
         if (q == null) return null;
         return ODATA_FILTER.matcher(q).replaceAll("$1$2***");
     }

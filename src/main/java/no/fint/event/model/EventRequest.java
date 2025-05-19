@@ -1,6 +1,8 @@
 package no.fint.event.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import no.fint.event.util.ODataQueryFilter;
 
 import java.io.Serializable;
 
@@ -12,5 +14,10 @@ public class EventRequest implements Serializable {
      * The query value is set when the consumer needs to send a value to the provider and adapter.
      */
     private String query;
+
+    @JsonIgnore
+    public String getFilteredQuery() {
+    return ODataQueryFilter.maskFilter(query);
+    }
 
 }
