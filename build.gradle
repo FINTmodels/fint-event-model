@@ -56,4 +56,4 @@ jacocoTestReport {
     }
 }
 
-apply from: 'https://raw.githubusercontent.com/FINTLabs/fint-buildscripts/master/reposilite.gradle'
+apply from: 'https://raw.githubusercontent.com/FINTLabs/fint-buildscripts/master/reposilite.ga.gradle'
