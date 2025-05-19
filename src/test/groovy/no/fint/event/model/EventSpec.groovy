@@ -215,4 +215,20 @@ class EventSpec extends Specification {
         copy instanceof Event
         copy.equals(event)
     }
+
+    def "FilteredQuery masks only the \$filter parameter"() {
+        given:
+        def req = new EventRequest()
+        req.setQuery('$top=10&$filter=name eq \'Ola\'&$orderby=name')
+
+        expect:
+        req.getFilteredQuery() == '$top=10&$filter=***&$orderby=name'
+        req.getQuery()           == '$top=10&$filter=name eq \'Ola\'&$orderby=name'
+    }
+
+    def "FilteredQuery returns null when query is null"() {
+        expect:
+        new EventRequest().getFilteredQuery() == null
+    }
+
 }
