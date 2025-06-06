@@ -241,4 +241,29 @@ class EventSpec extends Specification {
         new EventRequest().getFilteredQuery() == null
     }
 
+    def "FilteredMessage masks only the \$filter parameter"() {
+        given:
+        def event = new Event()
+        event.setMessage('\$top=5&\$filter=secret eq \'X\'&\$orderby=id')
+
+        expect:
+        event.getFilteredMessage() == '\$top=5&\$filter=***&\$orderby=id'
+        event.getMessage()         == '\$top=5&\$filter=secret eq \'X\'&\$orderby=id'
+    }
+
+    def "FilteredMessage masks leading \$filter without prefix"() {
+        given:
+        def event = new Event()
+        event.setMessage('\$filter=password eq \'hunter2\'')
+
+        expect:
+        event.getFilteredMessage() == '\$filter=***'
+        event.getMessage()         == '\$filter=password eq \'hunter2\''
+    }
+
+    def "FilteredMessage returns null when message is null"() {
+        expect:
+        new Event().getFilteredMessage() == null
+    }
+
 }
