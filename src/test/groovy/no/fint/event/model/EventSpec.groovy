@@ -226,6 +226,16 @@ class EventSpec extends Specification {
         req.getQuery()           == '$top=10&$filter=name eq \'Ola\'&$orderby=name'
     }
 
+    def "FilteredQuery masks leading \$filter without prefix"() {
+        given:
+        def req = new EventRequest()
+        req.setQuery('$filter=name eq \'bob\'')
+
+        expect:
+        req.getFilteredQuery() == '$filter=***'
+        req.getQuery()         == '$filter=name eq \'bob\''
+    }
+
     def "FilteredQuery returns null when query is null"() {
         expect:
         new EventRequest().getFilteredQuery() == null
