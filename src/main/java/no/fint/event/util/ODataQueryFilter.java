@@ -6,7 +6,7 @@ public final class ODataQueryFilter {
     private ODataQueryFilter() {}
 
     private static final Pattern ODATA_FILTER =
-            Pattern.compile("(?i)([?&])(\\$filter=)([^&]*)");
+            Pattern.compile("(?i)(^|[?&])(\\$filter=)([^&]*)");
 
     public static String maskFilter(String q) {
         if (q == null) return null;
