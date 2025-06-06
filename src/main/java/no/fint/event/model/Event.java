@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
+import no.fint.event.util.ODataQueryFilter;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -444,6 +445,14 @@ public class Event<T> implements Serializable {
     @JsonIgnore
     public boolean isRegisterOrgId() {
         return DefaultActions.REGISTER_ORG_ID.name().equals(action);
+    }
+
+    @JsonIgnore
+    public String getFilteredMessage() {
+        if (response == null || response.getMessage() == null) {
+            return null;
+        }
+        return ODataQueryFilter.maskFilter(response.getMessage());
     }
 
 }
