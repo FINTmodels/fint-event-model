@@ -261,6 +261,16 @@ class EventSpec extends Specification {
         event.getMessage()         == '\$filter=password eq \'hunter2\''
     }
 
+    def "FilteredMessage masks leading \$filter in message"() {
+        given:
+        def event = new Event()
+        event.setMessage('No case found for query: $filter=tittel eq \'bob\'')
+
+        expect:
+        event.getFilteredMessage() == 'No case found for query: $filter=***'
+        event.getMessage()         == 'No case found for query: $filter=tittel eq \'bob\''
+    }
+
     def "FilteredMessage returns null when message is null"() {
         expect:
         new Event().getFilteredMessage() == null
